@@ -113,12 +113,19 @@ TWEEN.Tween = function (object) {
 	var _onCompleteCallback = null;
 	var _onStopCallback = null;
 
-	// Set all starting values present on the target object
-	for (var field in object) {
-		_valuesStart[field] = parseFloat(object[field], 10);
-	}
+	// // LARS moved this to 'this.to(...)'
+	// // Set all starting values present on the target object
+	// for (var field in object) {
+	// 	_valuesStart[field] = parseFloat(object[field], 10);
+	// }
 
 	this.to = function (properties, duration) {
+
+		// LARS moved this here
+		// Set all starting values present on the target object
+		for (var field in properties) {
+			_valuesStart[field] = parseFloat(object[field], 10);
+		}
 
 		if (duration !== undefined) {
 			_duration = duration;
